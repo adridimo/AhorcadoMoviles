@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="5dp"
+    android:background="#EF6D6D"
+    android:orientation="vertical"
+    tools:context=".Informacion">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="178dp"
+            android:gravity="center"
+            android:text="EXPLICACION DEL JUEGO DEL AHORCADO"
+            android:textAlignment="center"
+            android:textColor="#673AB7"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="El juego que vamos a realizar es el ahorcado  Consiste en adivinar una palabra que aparecera  de forma aleatoria y tienes que adivinar la palabra letra a letra, si eliges 6 veces una letra que no esta, el muñeco morira y no podras seguir jugando."
+            android:textAlignment="textStart"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="volverinicio"
+            android:text="VOLVER A INICIO"
+            android:textAlignment="center"
+            android:textColor="#F4F4F4"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            android:translationY="30dp"
+            app:iconTint="#CA2A2A" />
+    </LinearLayout>
+</LinearLayout>
