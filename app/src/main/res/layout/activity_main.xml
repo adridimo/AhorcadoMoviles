@@ -17,7 +17,7 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="178dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="JUEGO DEL AHORCADO"
             android:textAlignment="center"
@@ -30,7 +30,7 @@
             android:onClick="Informacion"
             android:text="MAS INFORMACION"
             android:textSize="20sp"
-            android:translationY="20dp" />
+            android:translationY="90dp" />
 
         <Button
             android:id="@+id/button4"
@@ -39,19 +39,18 @@
             android:onClick="Jugar"
             android:text="JUGAR"
             android:textSize="24sp"
-            android:translationY="70dp" />
+            android:translationY="150dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
         android:orientation="vertical">
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView44"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
