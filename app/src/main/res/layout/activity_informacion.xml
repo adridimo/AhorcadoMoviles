@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="5dp"
     android:background="#EF6D6D"
     android:orientation="vertical"
     tools:context=".Informacion">
@@ -15,9 +14,9 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView22"
             android:layout_width="match_parent"
-            android:layout_height="178dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="EXPLICACION DEL JUEGO DEL AHORCADO"
             android:textAlignment="center"
@@ -25,10 +24,9 @@
             android:textSize="34sp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView32"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:text="El juego que vamos a realizar es el ahorcado  Consiste en adivinar una palabra que aparecera  de forma aleatoria y tienes que adivinar la palabra letra a letra, si eliges 6 veces una letra que no esta, el muñeco morira y no podras seguir jugando."
             android:textAlignment="textStart"
             android:textSize="24sp"
