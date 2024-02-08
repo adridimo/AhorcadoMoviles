@@ -2,6 +2,7 @@ package com.example.ahoracadomoviles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Juego extends AppCompatActivity {
     EditText editText;
@@ -97,12 +100,7 @@ public class Juego extends AppCompatActivity {
                                     t10.setText(String.valueOf(palabra.charAt(i)));
                                     existir=true;
                                 }
-
-
-
-
                             }
-
                         }
                         if(!existir){
                             vidas=vidas-1;
@@ -118,6 +116,7 @@ public class Juego extends AppCompatActivity {
                                 horca.setImageResource(R.drawable.cinco);
                             } else if(vidas==0){
                                 horca.setImageResource(R.drawable.seis);
+                                esperar();
                             }
                         }
 
@@ -133,6 +132,18 @@ public class Juego extends AppCompatActivity {
         });
 
 
+    }
+
+    public  void esperar() {
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Juego.this, Perdido.class);
+                startActivity(intent);
+            }
+        };
+        timer.schedule(task, 2000);
     }
 
     public String aleatorizarPalabra(){
