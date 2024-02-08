@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,9 @@ public class Juego extends AppCompatActivity {
     ArrayList<String> comidas = new ArrayList<String>();
     ArrayList<String> pueblos = new ArrayList<String>();
     String palabra;
+    ImageView horca;
+    int vidas=6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +41,16 @@ public class Juego extends AppCompatActivity {
         t8 = findViewById(R.id.textView8);
         t9 = findViewById(R.id.textView9);
         t10 = findViewById(R.id.textView10);
+        horca = findViewById(R.id.Imagenhorca);
         rellenarArrayList();
         palabra=aleatorizarPalabra();
+
         //txt2.setText(palabra);
         editText.setOnKeyListener(new TextView.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                boolean existir = false;
                 // Verificar si se presionó la tecla de acción y si fue una pulsación hacia abajo
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
@@ -57,34 +65,68 @@ public class Juego extends AppCompatActivity {
                             if(palabra.charAt(i)==primerCaracter){
                                 if(i==0){
                                     t1.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
                                 }else if(i==1){
                                     t2.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
+
                                 }else if(i==2){
                                     t3.setText(String.valueOf(palabra.charAt(i)));
+
+                                    existir=true;
                                 }else if(i==3){
                                     t4.setText(String.valueOf(palabra.charAt(i)));
+
+                                    existir=true;
                                 }else if(i==4){
                                     t5.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
                                 }else if(i==5){
                                     t6.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
                                 }else if(i==6){
                                     t7.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
                                 }else if(i==7){
                                     t8.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
                                 }else if(i==8){
                                     t9.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
                                 }else if(i==9){
                                     t10.setText(String.valueOf(palabra.charAt(i)));
+                                    existir=true;
+                                } else{
+                                    vidas=vidas-1;
+                                    if(vidas==5){
+                                        horca.setImageResource(R.drawable.uno);
+                                    } else if(vidas==4){
+                                        horca.setImageResource(R.drawable.dos);
+                                    }else if(vidas==3){
+                                        horca.setImageResource(R.drawable.tres);
+                                    }else if(vidas==2){
+                                        horca.setImageResource(R.drawable.cuatro);
+                                    }else if(vidas==1){
+                                        horca.setImageResource(R.drawable.cinco);
+                                    } else if(vidas==0){
+                                        horca.setImageResource(R.drawable.seis);
+                                    }
                                 }
+
+
                             }
+
                         }
+
                     } else {
                         Toast.makeText(Juego.this, "El campo está vacío", Toast.LENGTH_SHORT).show();
                     }
                     return true; // Indica que el evento ha sido consumido
                 }
                 return false; // Indica que el evento no ha sido consumido
+
             }
+
         });
 
 
