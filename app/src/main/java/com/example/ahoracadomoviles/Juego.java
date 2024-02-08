@@ -96,26 +96,29 @@ public class Juego extends AppCompatActivity {
                                 }else if(i==9){
                                     t10.setText(String.valueOf(palabra.charAt(i)));
                                     existir=true;
-                                } else{
-                                    vidas=vidas-1;
-                                    if(vidas==5){
-                                        horca.setImageResource(R.drawable.uno);
-                                    } else if(vidas==4){
-                                        horca.setImageResource(R.drawable.dos);
-                                    }else if(vidas==3){
-                                        horca.setImageResource(R.drawable.tres);
-                                    }else if(vidas==2){
-                                        horca.setImageResource(R.drawable.cuatro);
-                                    }else if(vidas==1){
-                                        horca.setImageResource(R.drawable.cinco);
-                                    } else if(vidas==0){
-                                        horca.setImageResource(R.drawable.seis);
-                                    }
                                 }
+
+
 
 
                             }
 
+                        }
+                        if(!existir){
+                            vidas=vidas-1;
+                            if(vidas==5){
+                                horca.setImageResource(R.drawable.uno);
+                            } else if(vidas==4){
+                                horca.setImageResource(R.drawable.dos);
+                            }else if(vidas==3){
+                                horca.setImageResource(R.drawable.tres);
+                            }else if(vidas==2){
+                                horca.setImageResource(R.drawable.cuatro);
+                            }else if(vidas==1){
+                                horca.setImageResource(R.drawable.cinco);
+                            } else if(vidas==0){
+                                horca.setImageResource(R.drawable.seis);
+                            }
                         }
 
                     } else {
