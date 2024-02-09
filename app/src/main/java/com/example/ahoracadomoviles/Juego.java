@@ -118,6 +118,36 @@ public class Juego extends AppCompatActivity {
                                 horca.setImageResource(R.drawable.seis);
                                 esperar();
                             }
+                        }else{
+                            if(palabra.length()==4){
+                                if(t1.getText()!="" && t2.getText()!="" && t3.getText()!="" && t4.getText()!=""){
+                                    esperar2();
+                                }
+                            }else if(palabra.length()==5){
+                                if(t1.getText()!="" && t2.getText()!="" && t3.getText()!="" && t4.getText()!="" && t5.getText()!=""){
+                                    esperar2();
+                                }
+                            }else if(palabra.length()==6){
+                                if(t1.getText()!="" && t2.getText()!="" && t3.getText()!="" && t4.getText()!="" && t5.getText()!="" && t6.getText()!=""){
+                                    esperar2();
+                                }
+                            }else if(palabra.length()==7){
+                                if(t1.getText()!="" && t2.getText()!="" && t3.getText()!="" && t4.getText()!="" && t5.getText()!="" && t6.getText()!="" && t7.getText()!=""){
+                                    esperar2();
+                                }
+                            }else if(palabra.length()==8){
+                                if(t1.getText()!="" && t2.getText()!="" && t3.getText()!="" && t4.getText()!="" && t5.getText()!="" && t6.getText()!="" && t7.getText()!="" && t8.getText()!=""){
+                                    esperar2();
+                                }
+                            }else if(palabra.length()==9){
+                                if(t1.getText()!="" && t2.getText()!="" && t3.getText()!="" && t4.getText()!="" && t5.getText()!="" && t6.getText()!="" && t7.getText()!="" && t8.getText()!="" && t9.getText()!=""){
+                                    esperar2();
+                                }
+                            }else if(palabra.length()==10){
+                                if(t1.getText()!="" && t2.getText()!="" && t3.getText()!="" && t4.getText()!="" && t5.getText()!="" && t6.getText()!="" && t7.getText()!="" && t8.getText()!="" && t9.getText()!="" && t10.getText()!=""){
+                                    esperar2();
+                                }
+                            }
                         }
 
                     } else {
@@ -132,6 +162,18 @@ public class Juego extends AppCompatActivity {
         });
 
 
+    }
+
+    public  void esperar2() {
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Juego.this, Ganado.class);
+                startActivity(intent);
+            }
+        };
+        timer.schedule(task, 2000);
     }
 
     public  void esperar() {
@@ -152,14 +194,17 @@ public class Juego extends AppCompatActivity {
         if(aleatorio==1){
             aleatorio=(int)(Math.random()*deportes.size());
             palabra = deportes.get(aleatorio);
+            deportes.remove(deportes.get(aleatorio));
             txt3.setText("Deporte");
         }else if(aleatorio==2){
             aleatorio=(int)(Math.random()*comidas.size());
             palabra = comidas.get(aleatorio);
+            comidas.remove(comidas.get(aleatorio));
             txt3.setText("Comida");
         }else{
             aleatorio=(int)(Math.random()*pueblos.size());
             palabra = pueblos.get(aleatorio);
+            pueblos.remove(pueblos.get(aleatorio));
             txt3.setText("Pueblos");
         }
         return palabra;

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AhoracadoMoviles"
         tools:targetApi="31">
         <activity
+            android:name=".Ganado"
+            android:exported="false" />
+        <activity
             android:name=".Perdido"
             android:exported="false" />
         <activity
