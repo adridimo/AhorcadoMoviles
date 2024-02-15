@@ -183,7 +183,7 @@ public class Juego extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-        timer.schedule(task, 2000);
+        timer.schedule(task, 1500);
     }
 
     public  void esperar() {
@@ -198,7 +198,7 @@ public class Juego extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-        timer.schedule(task, 2000);
+        timer.schedule(task, 1500);
     }
 
     public String aleatorizarPalabra(){
