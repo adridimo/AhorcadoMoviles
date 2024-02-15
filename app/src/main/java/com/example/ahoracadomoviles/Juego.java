@@ -3,6 +3,7 @@ package com.example.ahoracadomoviles;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -26,6 +27,8 @@ public class Juego extends AppCompatActivity {
     ImageView horca;
     int vidas=6;
 
+    MediaPlayer media;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +51,19 @@ public class Juego extends AppCompatActivity {
         rellenarArrayList();
         palabra=aleatorizarPalabra();
 
-        //txt2.setText(palabra);
+        if (media==null){
+            media = MediaPlayer.create(this,R.raw.jugar);
+        }
+        if (!media.isPlaying()){
+            media.start();
+        }
+
         editText.setOnKeyListener(new TextView.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 boolean existir = false;
-                // Verificar si se presionó la tecla de acción y si fue una pulsación hacia abajo
+                // Verificar si se presionó la tecla de acción
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     // Obtener el texto del EditText
@@ -72,14 +81,11 @@ public class Juego extends AppCompatActivity {
                                 }else if(i==1){
                                     t2.setText(String.valueOf(palabra.charAt(i)));
                                     existir=true;
-
                                 }else if(i==2){
                                     t3.setText(String.valueOf(palabra.charAt(i)));
-
                                     existir=true;
                                 }else if(i==3){
                                     t4.setText(String.valueOf(palabra.charAt(i)));
-
                                     existir=true;
                                 }else if(i==4){
                                     t5.setText(String.valueOf(palabra.charAt(i)));
@@ -153,9 +159,9 @@ public class Juego extends AppCompatActivity {
                     } else {
                         Toast.makeText(Juego.this, "El campo está vacío", Toast.LENGTH_SHORT).show();
                     }
-                    return true; // Indica que el evento ha sido consumido
+                    return true;
                 }
-                return false; // Indica que el evento no ha sido consumido
+                return false;
 
             }
 
@@ -169,6 +175,9 @@ public class Juego extends AppCompatActivity {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
+                media.stop();
+                media.release();
+                media=null;
                 Intent intent = new Intent(Juego.this, Ganado.class);
                 startActivity(intent);
             }
@@ -181,6 +190,9 @@ public class Juego extends AppCompatActivity {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
+                media.stop();
+                media.release();
+                media=null;
                 Intent intent = new Intent(Juego.this, Perdido.class);
                 startActivity(intent);
             }
@@ -209,6 +221,7 @@ public class Juego extends AppCompatActivity {
         }
         return palabra;
     }
+
 
     public void rellenarArrayList(){
         deportes.add("ciclismo");
@@ -241,5 +254,13 @@ public class Juego extends AppCompatActivity {
         pueblos.add("bolaños");
         pueblos.add("moral");
         pueblos.add("solana");
+    }
+
+    public void atras(View view) {
+        media.stop();
+        media.release();
+        media=null;
+        Intent intent = new Intent(Juego.this, MainActivity.class);
+        startActivity(intent);
     }
 }
