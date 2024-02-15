@@ -18,7 +18,7 @@ import java.util.TimerTask;
 
 public class Juego extends AppCompatActivity {
     EditText editText;
-    TextView txt2,txt3,t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
+    TextView txt2,txt3,t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,tLongitud;
     TextView txt;
     ArrayList<String> deportes = new ArrayList<String>();
     ArrayList<String> comidas = new ArrayList<String>();
@@ -47,6 +47,7 @@ public class Juego extends AppCompatActivity {
         t8 = findViewById(R.id.textView8);
         t9 = findViewById(R.id.textView9);
         t10 = findViewById(R.id.textView10);
+        tLongitud = findViewById(R.id.textView16);
         horca = findViewById(R.id.Imagenhorca);
         rellenarArrayList();
         palabra=aleatorizarPalabra();
@@ -206,16 +207,19 @@ public class Juego extends AppCompatActivity {
         if(aleatorio==1){
             aleatorio=(int)(Math.random()*deportes.size());
             palabra = deportes.get(aleatorio);
+            tLongitud.setText(String.valueOf(palabra.length()));
             deportes.remove(deportes.get(aleatorio));
             txt3.setText("Deporte");
         }else if(aleatorio==2){
             aleatorio=(int)(Math.random()*comidas.size());
             palabra = comidas.get(aleatorio);
+            tLongitud.setText(String.valueOf(palabra.length()));
             comidas.remove(comidas.get(aleatorio));
             txt3.setText("Comida");
         }else{
             aleatorio=(int)(Math.random()*pueblos.size());
             palabra = pueblos.get(aleatorio);
+            tLongitud.setText(String.valueOf(palabra.length()));
             pueblos.remove(pueblos.get(aleatorio));
             txt3.setText("Pueblos");
         }
